@@ -1,0 +1,35 @@
+.panel-items {
+    input {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 100%;
+    }
+
+    article {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        flex-grow: 1;
+        min-height: 0;
+        list-style: none;
+        overflow-y: auto;
+
+        li {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            border-bottom: 1px solid #EEE;
+            padding: 8px;
+            transition: background-color .1s ease-in-out;
+
+            &:hover {
+                background-color: #EEE;
+            }
+        }
+    }
+}

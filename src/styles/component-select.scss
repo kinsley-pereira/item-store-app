@@ -1,0 +1,43 @@
+.component-select-container {
+    width: 100%;
+
+    input {
+        width: 100%;
+    }
+
+    .select-list {
+        width: 100%;
+        position: relative;
+
+        ul {
+            position: absolute;
+            box-shadow: 1px 1px 3px 0 #00000029;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            background-color: white;
+            overflow-y: auto;
+            list-style: none;
+
+            // Animation
+            max-height: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease, max-height 0.3s ease;
+
+            &.open {
+                max-height: 180px;
+                opacity: 1;
+            }
+
+            li {
+                border-bottom: 1px solid #EEE;
+                padding: 8px;
+
+                &.selected {
+                    background-color: #66B776;
+                    color: white;
+                }
+            }
+        }
+    }
+}

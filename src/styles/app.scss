@@ -1,0 +1,379 @@
+@use "sass:color";
+
+// Base document style
+html, body, #root, .app-wrapper {
+	min-height: 100vh;
+
+	// @media (max-width: 1050px) {
+	// 	min-height: 100%;
+	// }
+}
+
+body {
+	background-color: #F1F1F1;
+}
+
+#root {
+	display: flex;
+	flex-direction: column;
+}
+
+// Base typography
+html {
+	color: #2C2C2C;
+	font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 600;
+}
+
+b {
+	font-weight: 600;
+}
+
+* {
+	outline-color: #2C2C2C;
+}
+
+// Base wrappers
+.app-wrapper {
+	padding: 24px 0;
+	margin: 0 auto;
+	max-width: 992px;
+	width: 100%;
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+	> :only-child {
+		margin-bottom: 48px;
+	}
+
+	@media (max-width: 1050px) {
+		box-sizing: border-box;
+		padding-bottom: 0;
+
+		> :only-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.app-window {
+	border-radius: 4px;
+	background-color: #FFF;
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+}
+
+// Forms
+label {
+	display: block;
+	margin-bottom: .25rem;
+	color: #777;
+	font-size: 1rem;
+	transition: color .3s ease-in-out;
+
+	// :focus-within & {
+	// 	color: #2C2C2C;
+	// 	font-weight: 500;
+	// }
+}
+
+input {
+	border-top: none !important;
+	border-left: none !important;
+	border-right: none !important;
+	border-bottom: 1px solid #DDD;
+	padding: .25rem 1px .5rem;
+	box-sizing: border-box;
+	background-color: transparent;
+	font-size: .875rem;
+	transition: border-color .1s ease-in-out;
+
+	&:focus:focus-visible {
+		outline: none;
+		border-bottom-color: #2C2C2C;
+		border-bottom-width: 2px;
+		padding-bottom: calc(.5rem - 1px); // Padding-bottom minus extra border-width
+	}
+
+	&:disabled {
+		background-color: #DDDDDD4A;
+	}
+
+	&:read-only {
+		cursor: unset;
+	}
+}
+
+.radio-group {
+	display: flex;
+	flex-direction: row;
+	gap: .75rem;
+
+	> div {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: .5rem;
+	}
+
+	input {
+		margin: 0;
+	}
+}
+
+// Buttons
+button {
+	$color-default: #EEE;
+	$color-success: #3EA552;
+	$color-danger: #C63F3F;
+
+	border: 1px solid $color-default;
+	border-radius: 4px;
+	padding: 8px;
+	background-color: $color-default;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background-color .2s, border-color .2s;
+
+	&:hover {
+		border-color: color.adjust($color-default, $lightness: -10%);
+		background-color: color.adjust($color-default, $lightness: -10%);
+	}
+
+	&:active {
+		border-color: color.adjust($color-default, $lightness: -15%);
+		background-color: color.adjust($color-default, $lightness: -15%);
+	}
+
+	&.success {
+		border-color: $color-success;
+		background-color: $color-success;
+		color: white;
+
+		&:hover {
+			border-color: color.adjust($color-success, $lightness: -10%);
+			background-color: color.adjust($color-success, $lightness: -10%);
+		}
+
+		&:active {
+			border-color: color.adjust($color-success, $lightness: -15%);
+			background-color: color.adjust($color-success, $lightness: -15%);
+		}
+	}
+
+	&.danger {
+		border-color: $color-danger;
+		background-color: $color-danger;
+		color: white;
+
+		&:hover {
+			border-color: color.adjust($color-danger, $lightness: -10%);
+			background-color: color.adjust($color-danger, $lightness: -10%);
+		}
+
+		&:active {
+			border-color: color.adjust($color-danger, $lightness: -15%);
+			background-color: color.adjust($color-danger, $lightness: -15%);
+		}
+	}
+}
+
+// Tables
+.table-container {
+	border-radius: 4px;
+	max-height: 100%;
+	background-color: #EEE;
+	overflow: auto;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+	max-height: 100%;
+	
+	th, td {
+		padding: 8px;
+		text-align: left;
+
+		&:not(:first-child) {
+			text-align: right;
+		}
+	}
+
+	th {
+		background-color: #EEE;
+		font-weight: 500;
+	}
+
+	tr {
+		&:nth-child(odd) td {
+			background-color: #FFF;
+		}
+
+		&:nth-child(even) td {
+			background-color: #EEE;
+		}
+	}
+
+	// thead tr:first-child th {
+	// 	&:first-child {
+	// 		border-top-left-radius: 4px;
+	// 	}
+
+	// 	&:last-child {
+	// 		border-top-right-radius: 4px;
+	// 	}
+	// }
+
+	// tbody:last-child tr:last-child td {
+	// 	&:first-child {
+	// 		border-bottom-left-radius: 4px;
+	// 	}
+
+	// 	&:last-child {
+	// 		border-bottom-right-radius: 4px;
+	// 	}
+	// }
+}
+
+// Badge
+.badge {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	width: 1.333rem;
+	height: 1.333rem;
+	background-color: #EEE;
+	text-align: center;
+	font-size: 1rem;
+}
+
+// Panel
+.panel {
+	border: 1px solid #C63F3F;
+	padding: .75rem;
+	background-color: rgb(198, 63, 63, .05);
+	color: #C63F3F;
+	font-size: .875rem;
+}
+
+// Scrollbar
+* {
+	&::-webkit-scrollbar {
+		width: 8px;
+		height: 8px;
+		margin-left: 8px;
+	}
+	
+	&::-webkit-scrollbar-track {
+		background: #EEE;
+	}
+	
+	&::-webkit-scrollbar-thumb {
+		background: #888;
+	}
+	
+	&::-webkit-scrollbar-thumb:hover {
+		background: #999;
+	}
+	
+	// Firefox
+	// scrollbar-width: thin;
+	// scrollbar-color: #999 #F1F1F1;
+}
+
+// Responsive
+@media (max-width: 1050px) {
+    .desktop-only { display: none; visibility: hidden; }
+}
+
+@media (min-width: 1051px) {
+    .mobile-only { display: none; visibility: hidden; }
+}
+
+// Flexbox
+.flex-row, .flex-col {
+	display: flex;
+}
+
+.flex-row {
+	flex-direction: row;
+}
+
+.flex-col {
+	flex-direction: column;
+}
+
+.flex-1 {
+	flex: 1;
+}
+
+.flex-fill {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.gap-4 {
+	gap: 16px;
+}
+
+// Margins
+.m-auto, .my-auto, .mt-auto {
+	margin-top: auto;
+}
+
+.m-auto, .my-auto, .mb-auto {
+	margin-bottom: auto;
+}
+
+.m-auto, .mx-auto, .mr-auto {
+	margin-right: auto;
+}
+
+.m-auto, .mx-auto, .ml-auto {
+	margin-left: auto;
+}
+
+.m-4, .my-4, .mt-4 {
+	margin-top: 16px;
+}
+
+.m-4, .my-4, .mb-4 {
+	margin-bottom: 16px;
+}
+
+.m-4, .mx-4, .mr-4 {
+	margin-right: 16px;
+}
+
+.m-4, .mx-4, .ml-4 {
+	margin-left: 16px;
+}
+
+// Padding
+.p-4, .py-4, .pt-4 {
+	padding-top: 16px;
+}
+
+.p-4, .py-4, .pb-4 {
+	padding-bottom: 16px;
+}
+
+.p-4, .px-4, .pr-4 {
+	padding-right: 16px;
+}
+
+.p-4, .px-4, .pl-4 {
+	padding-left: 16px;
+}

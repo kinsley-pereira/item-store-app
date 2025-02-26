@@ -1,0 +1,72 @@
+.view-dashboard {
+    height: 100%;
+    max-height: 800px;
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    grid-template-rows: 1fr 1fr auto;
+    gap: 16px;
+
+    > section {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        article {
+            flex-grow: 1;
+            overflow: hidden;
+            min-height: 0;
+        }
+    }
+
+    .panel-items {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+    }
+    
+    .panel-sell-offers {
+        grid-column: 2;
+        grid-row: 1;
+    }
+    
+    .panel-buy-offers {
+        grid-column: 2;
+        grid-row: 2;
+    }
+    
+    .panel-footer {
+        grid-column: 1 / -1;
+        grid-row: 3;
+    }
+
+    h2 {
+        margin-bottom: 16px;
+    }
+
+    table thead {
+        position: sticky;
+        top: 0;
+    }
+
+    @media (max-width: 1050px) {
+        height: unset;
+        max-height: unset;
+        display: flex;
+        flex-direction: column;
+
+        > section {
+            margin: 0 24px;
+
+            article {
+                height: 50%;
+            }
+        }
+
+        .panel-footer {
+            box-shadow: 0 0 3px 0 #00000029;
+            position: sticky;
+            bottom: 0;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+    }
+}

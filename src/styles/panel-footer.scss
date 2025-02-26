@@ -1,0 +1,25 @@
+.panel-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+        margin: 0;
+        font-size: 1.25rem;
+    }
+
+    .buttons-container {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+    }
+
+    @media (max-width: 1050px) {
+        flex-direction: column;
+
+        .buttons-container {
+            margin-top: 16px;
+        }
+    }
+}

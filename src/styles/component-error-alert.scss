@@ -1,0 +1,11 @@
+.component-error-alert {
+    // margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    button {
+        margin: 16px auto 0;
+    }
+}

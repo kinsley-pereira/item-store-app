@@ -1,0 +1,36 @@
+.panel-offers {
+    .offers-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            &:not(:last-child) {
+                border-bottom: 1px solid #EEE;
+                padding-bottom: 1rem;
+            }
+
+            &:not(:first-child) {
+                padding-top: 1rem;
+            }
+
+            .title {
+                font-weight: 600;
+                font-size: 1.125rem;
+            }
+    
+            .sub-title {
+                margin-top: .0625em;
+                margin-bottom: .625em;
+                color: #999;
+                font-weight: 500;
+            }
+
+            p {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+    }
+}
